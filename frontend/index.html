@@ -1,0 +1,229 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Crunch Fitness — AI Outbound Call Agent (POC)</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="color-scheme" content="light dark" />
+  <style>
+    :root{
+      --bg: #0b0c10;
+      --panel: #111317;
+      --muted: #a7b0c0;
+      --text: #e8ecf1;
+      --brand: #34d399; /* mint */
+      --brand-2: #8b5cf6; /* accent */
+      --danger: #ef4444;
+      --ok: #22c55e;
+      --card: #141822;
+      --border: #242a36;
+      --chip: #1c2230;
+      --chip-text: #c7d1e0;
+      --shadow: 0 5px 30px rgba(0,0,0,.25);
+      --radius: 16px;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+      color:var(--text);
+      background:
+        radial-gradient(1200px 600px at 10% -20%, rgba(52,211,153,.10), transparent 60%),
+        radial-gradient(1200px 600px at 110% 20%, rgba(139,92,246,.10), transparent 60%),
+        var(--bg);
+    }
+    a{color:var(--brand)}
+    .wrap{max-width:600px;margin:0 auto;padding:32px 20px}
+.hero{
+  display:grid; gap:22px; align-items:center; grid-template-columns: 1fr; /* was: 1.2fr .8fr */
+  justify-items: center;              /* NEW: center items in the grid */
+  text-align: center;                 /* NEW: center text inside */
+  padding:20px; border:1px solid var(--border); border-radius:var(--radius);
+  background:linear-gradient(180deg, rgba(255,255,255,.02), rgba(255,255,255,.00));
+  box-shadow: var(--shadow);
+}
+    .hero h1{font-size: clamp(28px, 3vw, 42px); line-height:1.05; margin:0}
+    .hero p{margin:0;color:var(--muted);font-size: clamp(14px, 1.6vw, 18px)}
+    .cta-card{
+      background:var(--card); border:1px solid var(--border); border-radius:var(--radius); padding:18px;
+    }
+    .badge{display:inline-block;padding:6px 10px;border-radius:999px;background:var(--chip);color:var(--chip-text);font-weight:600;font-size:12px;letter-spacing:.2px}
+    .form{display:grid; gap:12px; margin-top:12px}
+    label{font-weight:600; font-size:14px}
+    input[type="text"], input[type="tel"]{
+      width:100%; padding:12px 14px; border-radius:10px; border:1px solid var(--border);
+      background:#0f131d; color:var(--text); outline:none;
+    }
+    input::placeholder{color:#647087}
+    .row{display:grid; grid-template-columns:1fr 1fr; gap:12px}
+    .consent{display:flex; gap:10px; align-items:flex-start; font-size:13px; color:#cbd5e1}
+    .btn{
+      appearance:none; border:none; border-radius:12px; padding:12px 16px; font-weight:700;
+      background:linear-gradient(90deg, var(--brand), #4ade80);
+      cursor:pointer; color:#0b0c10; box-shadow: var(--shadow);
+    }
+    .btn[disabled]{opacity:.6; cursor:not-allowed}
+    .status{font-size:13px; margin-top:6px}
+    .status.ok{color:var(--ok)}
+    .status.err{color:var(--danger)}
+    .bonus{
+      margin-top:28px; padding:16px; border:1px dashed var(--border); border-radius:var(--radius);
+      background:rgba(52,211,153,.06);
+    }
+    .chips{display:flex; flex-wrap:wrap; gap:8px; margin-top:10px}
+    .chip{
+      border:1px solid var(--border); background:var(--chip); color:var(--chip-text);
+      padding:8px 12px; border-radius:999px; font-size:13px; cursor:pointer;
+    }
+    .hint{font-size:12px; color:#9fb0c7; margin-top:6px}
+    .arch{
+      margin-top:34px; display:grid; gap:16px;
+      align-items:center;
+      border:1px solid var(--border); border-radius:var(--radius); padding:18px; background:var(--panel);
+    }
+    .arch h3{margin:0 0 8px 0}
+    .kvs{display:grid; gap:8px}
+    .kv{display:flex; gap:10px; align-items:flex-start; font-size:15px}
+    .kv strong{color:#eaf3ff}
+    .footer{margin:28px 0 10px; font-size:12px; align-items:center; color:#9fb0c7; display:flex; justify-content:center; gap:10px; flex-wrap:wrap;}
+    @media (max-width: 900px){
+      .hero{grid-template-columns:1fr}
+      .row{grid-template-columns:1fr}
+      .arch{grid-template-columns:1fr}
+    }
+  .privacy { font-size: 13px; color: var(--muted);}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+
+    <!-- HERO -->
+    <section class="hero">
+      <div>
+        <span class="badge">POC • Realtime Voice AI</span>
+        <span class="badge">Crunch Fitness - Undefeated Tribe</span>
+        <h1>AI Outbound Call Agent</h1>
+        <p>
+        <br>
+          This demo showcases a multilingual, realtime voice agent that nurtures leads and books
+          in‑club trial passes — your next growth driver through transformational business impact
+          <br><br>
+        </p>
+      </div>
+      <div class="cta-card">
+        <form id="leadForm" class="form" autocomplete="on">
+          <span class="badge">Demo</span>
+          <h2>Get Your Free Trial Pass</h2>
+          <p class="muted">Enter your details and our agent will call you shortly.</p>
+          <div class="row">
+            <div>
+              <label for="name">Your name</label>
+              <input id="name" name="name" type="text" placeholder="Alex Johnson" required />
+            </div>
+            <div>
+              <label for="phone">Phone Number</label>
+              <input id="phone" name="phone" type="tel" placeholder="5125551234" required />
+            </div>
+          </div>
+
+          <!-- Optional language preference: purely informational; the agent will follow your speech -->
+          <input type="hidden" id="preferredLanguage" name="preferredLanguage" value="" />
+
+          <label class="consent">
+            <input id="consent" type="checkbox" required />
+            <span>I consent to receive a demo phone call.</span>
+          </label>
+
+          <button id="submitBtn" class="btn" type="submit">📞 Start demo call</button>
+          <div id="status" class="status" role="status" aria-live="polite"></div>
+          <div class="privacy">Privacy Statement: Information collected here is solely for<br>this demo and will not be sold or used for any other purpose.</div>
+        </form>
+
+        <div class="bonus">
+          <strong>💬 Bonus</strong>   The agent is multi-lingual<br>
+          <div class="hint" id="langHint">Answer the phone and speak in any language — the agent will follow.</div>
+          <div class="chips" id="langChips">
+            <span class="chip" data-lang="Spanish">Español</span> 
+            <span class="chip" data-lang="French">Français</span>
+            <span class="chip" data-lang="Arabic">العربية</span>
+            <span class="chip" data-lang="Mandarin Chinese">中文</span>
+            <span class="chip" data-lang="Hindi">हिन्दी</span>
+            <span class="chip" data-lang="Portuguese">Português</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ARCHITECTURE -->
+    <section class="arch">
+      <div>
+        <h3>How it works</h3>
+        <div class="kvs">
+          <div class="kv"><span>✅</span><div>Outbound flow: Form → Fastify backend triggers a Twilio call → TwiML connects a media stream.</div></div>
+          <div class="kv"><span>🎙️</span><div>Realtime voice: Twilio streams μ‑law audio to OpenAI Realtime; the agent responds with μ‑law audio back to the caller.</div></div>
+          <div class="kv"><span>🌍</span><div>Multilingual: The model detects & responds in the language you speak — no extra config needed.</div></div>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <div class="footer">© Robert Maleki</div>
+    </footer>
+  </div>
+
+  <script>
+    const form = document.getElementById('leadForm');
+    const statusEl = document.getElementById('status');
+    const submitBtn = document.getElementById('submitBtn');
+    const consent = document.getElementById('consent');
+    const preferredLanguage = document.getElementById('preferredLanguage');
+    const langChips = document.getElementById('langChips');
+    const langHint = document.getElementById('langHint');
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      statusEl.textContent = '';
+      statusEl.className = 'status';
+
+      const name = document.getElementById('name').value.trim();
+      const phone = document.getElementById('phone').value.trim();
+
+      if (!consent.checked) {
+        statusEl.textContent = 'Please check the consent box to proceed.';
+        statusEl.classList.add('err');
+        return;
+      }
+      if (!name || !phone) {
+        statusEl.textContent = 'Name and phone are required.';
+        statusEl.classList.add('err');
+        return;
+      }
+
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'Calling…';
+
+      try {
+        const res = await fetch('/api/start-call', {
+          method: 'POST',
+          headers: {'Content-Type':'application/json'},
+          body: JSON.stringify({ name, phone})
+        });
+
+        if (!res.ok) {
+          const data = await res.json().catch(() => ({}));
+          throw new Error(data.error || `Request failed (${res.status})`);
+        }
+
+        statusEl.textContent = 'Call started! You should receive a call in a few seconds. If you are on a Twilio trial, press any key to continue when prompted.';
+        statusEl.classList.add('ok');
+      } catch (err) {
+        statusEl.textContent = 'Something went wrong: ' + err.message;
+        statusEl.classList.add('err');
+      } finally {
+        submitBtn.disabled = false;
+        submitBtn.textContent = '📞 Start demo call';
+      }
+    });
+  </script>
+</body>
+</html>
