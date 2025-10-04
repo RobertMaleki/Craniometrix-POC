@@ -100,9 +100,8 @@
     <!-- HERO -->
     <section class="hero">
       <div>
-        <span class="badge">POC • Realtime Voice AI</span>
-        <span class="badge">Craniometrix Outbound GUIDE Activation</span>
-        <br>
+        <span class="badge">Built with Twilio + OpenAI Realtime. Empathy-first. Multilingual.</span>
+        <p></p>
         <h1>AI Outbound Call Agent for GUIDE Patient Activation</h1>
         <p>
         <br>This demo showcases a multilingual, realtime voice agent that nurtures leads and activates patients for Medicare’s GUIDE dementia care program.
@@ -112,7 +111,7 @@
       <div class="cta-card">
         <form id="leadForm" class="form" autocomplete="on">
           <span class="badge">Proof of Concept</span>
-          <h2>Start Your GUIDE Journey: Learn How GUIDE Supports Families Living with Dementia</h2>
+          <h2>Start Your GUIDE Journey<br>Learn How GUIDE Supports Families Living with Dementia</h2>
           <p class="muted">Enter your details and our agent will call you shortly.</p>
           <div class="row">
             <div>
@@ -121,7 +120,7 @@
             </div>
             <div>
               <label for="phone">Phone Number</label>
-              <input id="phone" name="phone" type="tel" placeholder="5551234567" required />
+              <input id="phone" name="phone" type="tel" placeholder="555 123-4567" required inputmode="tel" autocomplete="tel"/>
             </div>
           </div>
 
@@ -130,12 +129,14 @@
 
           <label class="consent">
             <input id="consent" type="checkbox" required />
-            <span>I consent to receive a demo phone call.</span>
+            <span>I consent to receive a one-time demo phone call about the GUIDE program.</span>
           </label>
 
           <button id="submitBtn" class="btn" type="submit">📞 Start demo call</button>
           <div id="status" class="status" role="status" aria-live="polite"></div>
-          <div class="privacy">Privacy Statement: Information collected here is solely for<br>this demo and will not be sold or used for any other purpose.</div>
+          <div class="privacy">Privacy Statement: Information collected here is solely for
+            <br>this demo and will not be sold or used for any other purpose.
+          <br>We won’t store PHI; this is a simulated enrollment outreach</div>
         </form>
 
         <div class="bonus">
