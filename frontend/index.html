@@ -102,17 +102,17 @@
       <div>
         <span class="badge">POC • Realtime Voice AI</span>
         <span class="badge">Craniometrix Outbound GUIDE Activation</span>
-        <h1>AI Outbound Call Agent- GUIDE Activation</h1>
+        <br>
+        <h1>AI Outbound Call Agent for GUIDE Patient Activation</h1>
         <p>
-        <br>AI-powered outreach that helps practices activate and enroll dementia patients and caregivers into the Medicare GUIDE model.
-        This demo showcases a multilingual, realtime voice agent that nurtures leads and activates patients for Medicare’s GUIDE dementia care program.
+        <br>This demo showcases a multilingual, realtime voice agent that nurtures leads and activates patients for Medicare’s GUIDE dementia care program.
         <br><br>
         </p>
       </div>
       <div class="cta-card">
         <form id="leadForm" class="form" autocomplete="on">
-          <span class="badge">Demo</span>
-          <h2>Get Your Free Trial Pass</h2>
+          <span class="badge">Proof of Concept</span>
+          <h2>Start Your GUIDE Journey: Learn How GUIDE Supports Families Living with Dementia</h2>
           <p class="muted">Enter your details and our agent will call you shortly.</p>
           <div class="row">
             <div>
@@ -121,7 +121,7 @@
             </div>
             <div>
               <label for="phone">Phone Number</label>
-              <input id="phone" name="phone" type="tel" placeholder="5125551234" required />
+              <input id="phone" name="phone" type="tel" placeholder="5551234567" required />
             </div>
           </div>
 
@@ -213,7 +213,7 @@
           throw new Error(data.error || `Request failed (${res.status})`);
         }
 
-        statusEl.textContent = 'Call started! You should receive a call in a few seconds. If you are on a Twilio trial, press any key to continue when prompted.';
+        statusEl.textContent = 'Call started! You should receive a call in a few seconds.';
         statusEl.classList.add('ok');
       } catch (err) {
         statusEl.textContent = 'Something went wrong: ' + err.message;
