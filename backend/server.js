@@ -155,7 +155,7 @@ fastify.all("/incoming-call", async (req, reply) => {
   const wsUrl = base.replace(/^http/, "ws") + "/media-stream"+(firstName ? `?name=${encodeURIComponent(firstName)}` : "");
   const twiml = `<?xml version="1.0" encoding="UTF-8"?>
   <Response>
-    <Say>Please wait while I connect you to a Crunch Fitness expert.</Say>
+    <Say>Please wait while I connect your call.</Say>
     <Connect>
       <Stream url="${wsUrl}">
         ${callerName ? `<Parameter name="name" value="${firstName}"/>` : ""}
