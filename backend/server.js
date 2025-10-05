@@ -70,6 +70,7 @@ function getSystemMessage(callerName) {
     
     Opening:
       - This is Alice from Dr. John Doe's office in partnership with Craniometrix”;
+      - Explain you are calling because the caller requested an informational call about the GUIDE program.
       - Confirm the caller is available for a few minutes.
       - Only proceed if caller confirms they are available and this is a good time. Otherwise, offer to call back later and confirm day and time.
       - Ask for permission to share a brief overview.
